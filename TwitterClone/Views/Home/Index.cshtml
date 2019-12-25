@@ -4,6 +4,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
+
+
 <div class="wrapper">
     <!-- Sidebar -->
     <nav id="sidebar">
@@ -13,20 +16,22 @@
             <div class="input-group md-form form-sm form-2 pl-0">
                 <div class="input-group mb-3">
 
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                    <div class="input-group-addon">
-                        <span class="input-group-text" id="basic-addon1"><i class="glyphicon glyphicon-search" aria-hidden="true"></i></span>
-                    </div>
+                    <input type="text" class="form-control" id="userName" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+   
+                    <a href="@Url.Action("Search", "Home")" class="input-group-addon">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </a>
+                    
                 </div>
             </div>
             <hr />
             <div class="navbar-collapse collapse">
                 <ul class="list-unstyled">
                     <li>
-                        @Html.ActionLink("1", "UpdateTweet", "Home") <span class="text-primary">Followers</span>
+                        @Html.ActionLink(Model.Followers.ToString(), "UpdateTweet", "Home") <span class="text-primary">Followers</span>
                     </li>
                     <li>
-                        @Html.ActionLink("3", "UpdateTweet", "Home") <span>Following</span>
+                        @Html.ActionLink(Model.Following.ToString(), "UpdateTweet", "Home") <span>Following</span>
                     </li>
                     <li>
                         @Html.ActionLink("12", "UpdateTweet", "Home") <span>Tweets</span>
@@ -41,20 +46,20 @@
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                @using (Html.BeginForm("UpdateTweet", "Home") )
+                @using (Html.BeginForm("UpdateTweet", "Home"))
                 {
                     @Html.AntiForgeryToken()
-                <div class="form-group">
-                    <h2>What are you doing?</h2>
-                    @Html.TextAreaFor(model => model.Tweet.Message, new { @class = "form-control col-xs-12 txtminwidth", @rows = "3", @maxlength = "130" })
-                    <br />
                     <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Update" class = "btn btn-primary pull-right" />
+                        <h2>What are you doing?</h2>
+                        @Html.TextAreaFor(model => model.Tweet.Message, new { @class = "form-control col-xs-12 txtminwidth", @rows = "3", @maxlength = "130" })
+                        <br />
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Update" class="btn btn-primary pull-right" />
+                            </div>
                         </div>
+                        @*@Html.ActionLink("Update", "NewTweet", "Home", Model.Tweet, new { @class = "btn btn-primary pull-right" })*@
                     </div>
-                    @*@Html.ActionLink("Update", "NewTweet", "Home", Model.Tweet, new { @class = "btn btn-primary pull-right" })*@
-                </div>
 
                 }
                 <br />

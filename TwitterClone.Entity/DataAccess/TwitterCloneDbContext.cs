@@ -10,7 +10,8 @@ namespace TwitterClone.Entity.DataAccess
 
         public DbSet<Person> Person { get; set; }
         public DbSet<Tweet> Tweet { get; set; }
-       
+
+        public DbSet<Following> Followings { get; set; }
         public TwitterCloneDbContext() : base("name=TwitterConnectionString")
         {
             Database.SetInitializer<TwitterCloneDbContext>(new CreateDatabaseIfNotExists<TwitterCloneDbContext>());
