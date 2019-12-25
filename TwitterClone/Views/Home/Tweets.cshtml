@@ -1,0 +1,32 @@
+﻿@model TwitterClone.Entity.Models.PersonTweetModel
+@{
+    ViewBag.Title = "Followers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h4>PersonTweetModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Followers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Followers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Following)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Following)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    
+    @Html.ActionLink("Back to List", "Index")
+</p>

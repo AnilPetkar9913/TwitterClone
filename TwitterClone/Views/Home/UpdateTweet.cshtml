@@ -18,21 +18,28 @@
     {
         foreach (var item in Model.TweetsList)
         {
-            <div class="row">
-                <div class="col-md-3">
-                    @Html.DisplayFor(model => item.UserId)
-                </div>
-                <div class="col-md-3">
-                    @Html.DisplayFor(model => item.Message)
-                </div>
-                <div class="col-md-3">
-                    @Html.DisplayFor(model => item.Created)
-                </div>
+    <div class="row">
+        <div class="col-md-3">
+            @Html.DisplayFor(model => item.UserId)
+        </div>
+        <div class="col-md-3">
+            @Html.DisplayFor(model => item.Message)
+        </div>
+        <div class="col-md-3">
+            @Html.DisplayFor(model => item.Created)
+        </div>
 
-            </div>
+        <div class="col-md-1">
+            @Html.ActionLink("Edit", "EditTweet", new { id = item.TweetId })
+        </div>
+        <div class="col-md-2">
+            @Html.ActionLink("Delete", "DeleteTweet", new { id = item.TweetId })
+        </div>
+
+    </div>
         }
     }
 </div>
 <p>
-    @* @Html.ActionLink("Edit", "Edit", new { id = Model.TweetId }) |*@
+      
 </p>

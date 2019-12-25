@@ -8,5 +8,8 @@ namespace TwitterClone.Entity.Models
         public Tweet Tweet { get; set; }
         public Person Person { get; set; }
 
+        public int Followers { get; set; }
+        public int Following { get; set; }
+
     }
 }
